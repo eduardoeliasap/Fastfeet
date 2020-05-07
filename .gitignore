@@ -1,2 +1,6 @@
 node_modules/
+tmp/uploads/
+src/app/controllers/WithdrawalController-copy.js
 Instructions.txt
+.env
+.gitignore

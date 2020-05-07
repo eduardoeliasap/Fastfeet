@@ -13,11 +13,16 @@ class UserController {
       where: { email: req.body.email },
     });
 
-    if (!emailExists) { return res.json({ err: 'Email does not exists!' }); }
+    if (!emailExists) { return res.status(401).json({ err: 'Email does not exists!' }); }
 
     return res.json(emailExists);
   }
 
+  /**
+   * Create new User
+   * @param {*} req
+   * @param {*} res
+   */
   async store(req, res) {
     // User Validation using Yup Schema Validation
     const schema = Yup.object().shape({
@@ -33,7 +38,7 @@ class UserController {
       where: { email: req.body.email },
     });
 
-    if (emailExists) { return res.json({ err: 'Email already exists!' }); }
+    if (emailExists) { return res.status(401).json({ err: 'Email already exists!' }); }
 
     const { name, email, password } = User.create(req.body);
 

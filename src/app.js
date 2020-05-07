@@ -1,3 +1,6 @@
+// Load all variables from .env into process.env
+import 'dotenv/config'; // Can be used in any project
+
 import express from 'express';
 import routes from './routes';
 import './database'; // Call index.js of database folder
